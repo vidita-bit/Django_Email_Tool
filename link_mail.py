@@ -11,7 +11,7 @@ import sys
 
 sender_email = "%s" %(sys.argv[2])   #Add your email
 sender_name = "%s" %(sys.argv[1])
-password = "gvxf jvkg htlh xbhb"    #Add your password
+password = ""    #Add your password
 
 #Add csv file name/path
 e = pd.read_csv("%s" %(sys.argv[4]))
