@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <title></title>
+   </head>
+   <body>
+      <form action="/external/" method="post">
+        {% csrf_token %}
+      INPUT TEXT:<br>
+      <input type="text" placeholder="Receiver Name" name="r_name" required><br>
+      <input type="email" placeholder="Receiver Email" name="r_email" required><br>
+      <input type="text" placeholder="Subject of Email" name="subject_email" required><br>
+      <input type="text" placeholder="Email Content" name="content_email" required><br>
+      <input type="file" placeholder="CSV file" name="list_email" required><br>
+      {{data_external}}<br>
+      {{data1}}
+      <button type="submit" > SEND EMAIL</button>
+      </form>
+      
+      
+   </body>
+</html>
