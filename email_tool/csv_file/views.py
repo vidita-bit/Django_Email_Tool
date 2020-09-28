@@ -15,13 +15,8 @@ def external(request):
       return render(request, template)
    data2 = Profile.objects.all()
    
-   subject = request.POST.get('subject_email')
    content = request.POST.get('content_email')
    
-   
-   
-
-
    import smtplib
    import pandas as pd
 
@@ -34,15 +29,15 @@ def external(request):
 
 
    sender_email = request.POST.get('r_email')  #Add your email
-   sender_name = "Vidita"
-   password = ""    #Add your password
+   sender_name = request.POST.get('r_name')
+   password = request.POST.get('r_password')   #Add your password
    final = 'Email sent!'
 
    for data in data2:
 
     print("Sending to " + data.name)
     msg = MIMEMultipart()
-    msg['Subject'] = subject
+    msg['Subject'] = request.POST.get('subject_email')
     msg['From'] = formataddr((sender_name, sender_email))
     msg['To'] = formataddr((data.name, data.email))
 
@@ -105,4 +100,4 @@ def csv_upload(request):
 
         )
    context = {}
-   return render(request,template,context)
+   return render(request,template,{'data':'File Uploaded'})
