@@ -16,3 +16,12 @@
     font-weight: 200;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.back{
+
+        background: url('../carousel1.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 1000px;
+
+}
