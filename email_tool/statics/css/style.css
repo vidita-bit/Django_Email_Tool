@@ -1,0 +1,27 @@
+.darken_img{
+    filter: brightness(50%)
+}
+
+.align{
+    align-content: center;
+    text-align: center;
+}
+
+.input_size{
+    font-size: larger;
+}
+
+.subject_size, .email_size{
+    font-size: x-large;
+    font-weight: 200;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.back{
+
+        background: url('../carousel1.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 1000px;
+
+}
