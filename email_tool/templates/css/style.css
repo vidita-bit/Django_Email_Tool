@@ -1,0 +1,18 @@
+.darken_img{
+    filter: brightness(50%)
+}
+
+.align{
+    align-content: center;
+    text-align: center;
+}
+
+.input_size{
+    font-size: larger;
+}
+
+.subject_size, .email_size{
+    font-size: x-large;
+    font-weight: 200;
+    font-family: 'Courier New', Courier, monospace;
+}
