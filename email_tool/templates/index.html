@@ -1,0 +1,39 @@
+-<!DOCTYPE html>
+<html lang="en">
+   <head>
+
+   <title>Email Tool</title>
+   <script>
+
+   {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <!-- first load django static tag. -->
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+   </head>
+ <body >
+  <header>
+  <h1>
+                Bulk Emails
+            </h1>
+  <span>
+                Send Email at your convinence!
+            </span>
+</header>
+
+
+<div class="container cyan pullRight">
+  <a href=" {% url 'csv_upload' %} " >Upload CSV</a>
+  <a href="{% url 'external' %}">Send Email</a>
+  
+</div>
+
+
+
+<footer>
+  <span>AMURoboclub</span>
+</footer>
+</body>
+
+</html>

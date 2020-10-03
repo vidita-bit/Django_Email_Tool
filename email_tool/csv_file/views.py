@@ -8,7 +8,10 @@ from django.contrib import messages
 from subprocess import run,PIPE
 import sys
 
-
+def index(request):
+   template = "index.html"
+   if request.method == "GET":
+      return render(request, template)
 def external(request):
    template  = "home.html"
    if request.method == "GET":
@@ -79,25 +82,33 @@ def csv_upload(request):
    
 
    template  = "csv_upload.html" 
+   code = request.POST.get('code')
+   submit = request.POST.get('submit')
    #data = Profile.objects.all()
    prompt = {
-      'order': 'Order of the CSV should be name, email'
-   }  
+      'order': 'Column headings case and order in the CSV should be [name], [email]'
+   } 
    if request.method == "GET":
       return render(request, template,prompt)
+      if submit:
+        if code == '1234' :
+         
+         return render(request, template,prompt)
 
-   csv_files = request.FILES['file']
+         csv_files = request.FILES['file']
 
-   if not csv_files.name.endswith('.csv'):
-       messages.error(request, 'This is not a csv file')  
-   data_set = csv_files.read().decode('UTF-8')
-   io_string = io.StringIO(data_set)
-   next(io_string)
-   for column in csv.reader(io_string, delimiter=',',quotechar="|"):
-        _, created = Profile.objects.update_or_create(
-           name = column[0],
-           email = column[1],
+         if not csv_files.name.endswith('.csv'):
+             messages.error(request, 'This is not a csv file')  
+         data_set = csv_files.read().decode('UTF-8')
+         io_string = io.StringIO(data_set)
+         next(io_string)
+         for column in csv.reader(io_string, delimiter=',',quotechar="|"):
+            _, created = Profile.objects.update_or_create(
+              name = column[0],
+              email = column[1],
 
-        )
-   context = {}
-   return render(request,template,{'data':'File Uploaded'})
+          )
+         context = {}
+         return render(request,template,{'data':'File Uploaded'})
+      else:
+         return render(request, template, {'data':'code is not valid!'})
